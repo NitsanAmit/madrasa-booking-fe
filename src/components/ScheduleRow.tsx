@@ -12,6 +12,7 @@ export const ScheduleRow: React.FC<ScheduleRowProps> = ({rowIndex, onSlotClick, 
                         console.log("col", colIndex);
                         const isAvailable = isSlotAvailable(rowIndex, colIndex);
                         return <Chip text={getChipText(rowIndex)}
+                                     disabled={!isAvailable}
                                      color={isAvailable ? '#D9F2C8' : '#E7DBDB'}
                                      onChipClick={isAvailable ? (() => onSlotClick(rowIndex, colIndex)) : undefined}
                         />;
@@ -42,6 +43,7 @@ export interface ScheduleRowProps {
 const StyledRow = styled.div`
   display: flex;
   flex-direction: row;
+  margin-right: 10px;
 `;
 
 const isSlotAvailable = (row: number, col: number) => row && col;

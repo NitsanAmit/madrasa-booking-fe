@@ -1,10 +1,7 @@
 import React, {useCallback} from 'react';
 import './App.css';
 import {Schedule} from "./components/Schedule";
-
-
-
-
+import styled from "@emotion/styled";
 import BookingSummary from "./components/BookingSummary";
 import ChooseTeacher from "./components/ChooseTeacher";
 
@@ -14,7 +11,7 @@ export const App: React.FC = () => {
     //TODO
     console.log("Day: ", day, " Time: ", time);
   }, []);
-  
+
   const [loggedUser, setLoggedUser] = React.useState(null);
     const [progress, setProgress] = React.useState(0);
     const [chosenYear, setChosenYear] = React.useState(null);
@@ -22,21 +19,23 @@ export const App: React.FC = () => {
     const [chosenDay, setChosenDay] = React.useState(null);
     const [chosenTime, setChosenTime] = React.useState(null);
 
-    return (
-        <div className='App'>
-            
-          <Schedule onSlotClick={onSlotClick}/>
+  return (
+      <StyledContainer>
+        <Schedule onSlotClick={onSlotClick}/>
 
-            <BookingSummary />
+        <BookingSummary />
 
-            <ChooseTeacher />
+        <ChooseTeacher />
+      </StyledContainer>
+  );
 
-        </div>
-    );
-    
     //<Schedule progress={progress} setProgress={setProgress} />
 
     //{progress > 0 ? <ChooseTeacher {...props} progress={progress} setProgress={setProgress} /> : <></>}
 }
 
 export default App;
+
+const StyledContainer = styled.div`
+    margin: auto;
+`;
