@@ -1,4 +1,4 @@
-export interface AvailableDate{
+export interface AvailableSlot{
     id: number;
     year: string;
     month: string;
@@ -8,4 +8,8 @@ export interface AvailableDate{
     teachers: number[];
     status: string;
     info: string;
+}
+
+export interface Teacher{
+    
 }
