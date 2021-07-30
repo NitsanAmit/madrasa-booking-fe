@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .App-logo {
@@ -35,4 +39,37 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.teachersContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.teacherCard {
+  margin: 1rem;
+  padding-bottom: 1rem;
+  border: 1px solid black;
+  border-radius: 1.25rem;
+}
+
+.chooseTeacher {
+  background-color: rgb(34, 218, 34);
+  border-radius: 2rem;
+  padding: 0.5rem  1rem;
+  font-size: larger;
+}
+
+.teacherName, .teacherDescription {
+  margin: 1rem;
+  font-size: large;
+}
+
+.chooseTeacherTitle {
+  font-size: larger;
+  font-weight: 800;
 }
