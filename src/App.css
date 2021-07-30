@@ -57,13 +57,17 @@
   padding-bottom: 1rem;
   border: 1px solid black;
   border-radius: 1.25rem;
+  text-align: center;
 }
 
 .chooseTeacher {
-  background-color: rgb(34, 218, 34);
-  border-radius: 2rem;
+  background-color: #6B9E47;
+  border-radius: 15px;
+  border: 0;
   padding: 0.5rem  1rem;
   font-size: larger;
+  text-align: center;
+  width: 90%;
 }
 
 .teacherName, .teacherDescription {
