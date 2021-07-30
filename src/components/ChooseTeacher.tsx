@@ -1,9 +1,9 @@
 import React from 'react';
 
-function App() {
+export function ChooseTeacher() {
   
     return (
-        <div className="mainContainer">
+        <>
             <div className="chooseTeacherTitle">Choose teacher</div>
             <div className="teachersContainer">
                 <div className="teacherCard">
@@ -25,8 +25,6 @@ function App() {
                     <button className="chooseTeacher">Choose teacher</button>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
-
-export default App;

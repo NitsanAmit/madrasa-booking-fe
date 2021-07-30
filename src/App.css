@@ -49,7 +49,7 @@
   align-items: center;
   flex-direction: row;
   margin: 1rem;
-  padding: 1rem;
+  padding-bottom: 1rem;
 }
 
 .teacherCard {
@@ -74,4 +74,6 @@
 .chooseTeacherTitle {
   font-size: larger;
   font-weight: 800;
+  text-align: center;
+  padding-top: 32px;
 }

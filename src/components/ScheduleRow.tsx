@@ -9,9 +9,10 @@ export const ScheduleRow: React.FC<ScheduleRowProps> = ({rowIndex, onSlotClick, 
             {
                 Array.from(Array(DaysPerWeek).keys())
                     .map((_, colIndex) => {
-                        console.log("col", colIndex);
-                        const isAvailable = isSlotAvailable(rowIndex, colIndex);
-                        return <Chip text={getChipText(rowIndex)}
+                        const isAvailable = Math.random() > 0.2;
+                        return <Chip
+                            key={`${rowIndex}-${colIndex}`}
+                            text={getChipText(rowIndex)}
                                      disabled={!isAvailable}
                                      color={isAvailable ? '#D9F2C8' : '#E7DBDB'}
                                      onChipClick={isAvailable ? (() => onSlotClick(rowIndex, colIndex)) : undefined}

@@ -8,13 +8,14 @@ export const Schedule: React.FC<any> = ({onSlotClick}) => {
     return (
         <StyledSchedule>
             <DaysOfWeek/>
-            {
-                Array.from(Array(timeSlots).keys())
-                    .map((_, index) => {
-                        console.log(index);
-                        return <ScheduleRow rowIndex={index} onSlotClick={onSlotClick}/>;
-                    })
-            }
+            <ScrollableSection>
+                {
+                    Array.from(Array(timeSlots).keys())
+                        .map((_, index) => {
+                            return <ScheduleRow key={index} rowIndex={index} onSlotClick={onSlotClick}/>;
+                        })
+                }
+            </ScrollableSection>
         </StyledSchedule>
     )
 }
@@ -29,16 +30,22 @@ const StyledSchedule = styled.div`
   width: fit-content;
   align-items: center;
   align-content: space-around;
+`;
+
+const ScrollableSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-around;
   max-height: 400px;
   overflow-y: scroll;
-  scrollbar-track-color: #61dafb;
 `;
 
 const DaysOfWeek = () => {
     return (
         <StyledDaysOfWeek>
             {
-                Days.reverse().map(day => <StyledDay>{day}</StyledDay>)
+                Days.reverse().map(day => <StyledDay key={day}>{day}</StyledDay>)
             }
         </StyledDaysOfWeek>
     )
@@ -73,10 +80,10 @@ export function firstSlotToBook(row: number, column: number): Date {
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
     const nowDay = today.getDay();
     let firstDate = undefined;
-    if(row > nowDay) { //on the left
-        firstDate = new Date(now.getTime() + (row-nowDay) *MS_IN_DAY);
-    } else{
-        firstDate = new Date(now.getTime() + (WEEK_DAYS-nowDay + row) *MS_IN_DAY);
+    if (row > nowDay) { //on the left
+        firstDate = new Date(now.getTime() + (row - nowDay) * MS_IN_DAY);
+    } else {
+        firstDate = new Date(now.getTime() + (WEEK_DAYS - nowDay + row) * MS_IN_DAY);
     }
     const firstSlot = new Date(firstDate.getTime() + (FIRST_SLOT + column) * SLOT_SIZE)
     return firstSlot;

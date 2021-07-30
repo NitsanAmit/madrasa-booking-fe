@@ -2,32 +2,33 @@ import React, {useCallback} from 'react';
 import './App.css';
 import {Schedule} from "./components/Schedule";
 import styled from "@emotion/styled";
-import BookingSummary from "./components/BookingSummary";
-import ChooseTeacher from "./components/ChooseTeacher";
+import {BookingSummary} from "./components/BookingSummary";
+import {ChooseTeacher} from "./components/ChooseTeacher";
 
 export const App: React.FC = () => {
 
-  const onSlotClick = useCallback((time, day) => {
-    //TODO
-    console.log("Day: ", day, " Time: ", time);
-  }, []);
-
-  const [loggedUser, setLoggedUser] = React.useState(null);
+    const [loggedUser, setLoggedUser] = React.useState(null);
     const [progress, setProgress] = React.useState(0);
     const [chosenYear, setChosenYear] = React.useState(null);
     const [chosenMonth, setChosenMonth] = React.useState(null);
     const [chosenDay, setChosenDay] = React.useState(null);
     const [chosenTime, setChosenTime] = React.useState(null);
 
-  return (
-      <StyledContainer>
-        <Schedule onSlotClick={onSlotClick}/>
+    const onSlotClick = useCallback((time, day) => {
+        setChosenDay(day);
+        setChosenTime(time);
+        console.log("Day: ", day, " Time: ", time);
+    }, []);
 
-        <BookingSummary />
 
-        <ChooseTeacher />
-      </StyledContainer>
-  );
+    return (
+        <StyledContainer>
+            <Schedule onSlotClick={onSlotClick}/>
+
+            <BookingSummary/>
+            <ChooseTeacher/>
+        </StyledContainer>
+    );
 
     //<Schedule progress={progress} setProgress={setProgress} />
 
@@ -37,5 +38,5 @@ export const App: React.FC = () => {
 export default App;
 
 const StyledContainer = styled.div`
-    margin: auto;
+  margin: auto;
 `;
