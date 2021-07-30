@@ -20,7 +20,6 @@ const StyledChip = styled('div')<{ backgroundColor: string; }>`
   text-overflow: ellipsis;
   overflow: hidden;
   box-shadow: #cccccc 1px 2px 1px;
-  color: white;
   text-align: center;
   cursor: pointer;
   background: ${({backgroundColor}) => backgroundColor};
