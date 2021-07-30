@@ -15,5 +15,25 @@ export class DataAccess{
         return obj;
     }
 
+    async bookSlot(startDate: Date, student_id: string, teacher_id: string, recurrences: number, interval_days: number): Promise<any>{
+        const url = `${this.baseUrl}/book_event_bundle`;
+        const body = {
+            start_datetime: startDate.toISOString(),
+            student_ids: [student_id],
+            teacher_ids: [teacher_id],
+            recurrences,
+            interval_days
+        };
+        const ops = {
+            method: 'POST',
+            body: JSON.stringify(body),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        };
+        const obj = await (await fetch(url, ops)).json();
+        return obj;
+    }
     
 }
