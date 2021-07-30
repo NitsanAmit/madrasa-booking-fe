@@ -24,9 +24,13 @@ export const App: React.FC = () => {
     return (
         <StyledContainer>
             <Schedule onSlotClick={onSlotClick}/>
-
-            <BookingSummary/>
-            <ChooseTeacher/>
+            {
+                chosenDay && chosenTime &&
+                <>
+                    <BookingSummary/>
+                    <ChooseTeacher/>
+                </>
+            }
         </StyledContainer>
     );
 
