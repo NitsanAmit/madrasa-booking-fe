@@ -1,5 +1,4 @@
 import { AvailableSlot } from "../types";
-import fetch from 'unfetch';
 
 export class DataAccess{
 
