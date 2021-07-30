@@ -9,7 +9,7 @@ export const ScheduleRow: React.FC<ScheduleRowProps> = ({rowIndex, onSlotClick, 
             {
                 Array.from(Array(DaysPerWeek).keys())
                     .map((_, colIndex) => {
-                        const isAvailable = Math.random() > 0.2;
+                        const isAvailable =  (rowIndex%7 + colIndex ) % 5 > 1;
                         return <Chip
                             key={`${rowIndex}-${colIndex}`}
                             text={getChipText(rowIndex)}
