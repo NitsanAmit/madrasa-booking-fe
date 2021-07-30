@@ -45,13 +45,13 @@ const DaysOfWeek = () => {
     return (
         <StyledDaysOfWeek>
             {
-                Days.reverse().map(day => <StyledDay key={day}>{day}</StyledDay>)
+                Days.map(day => <StyledDay key={day}>{day}</StyledDay>)
             }
         </StyledDaysOfWeek>
     )
 }
 
-const Days = ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי", "שבת"];
+const Days = ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי", "שבת"].reverse();
 
 const StyledDaysOfWeek = styled.div`
   display: flex;
